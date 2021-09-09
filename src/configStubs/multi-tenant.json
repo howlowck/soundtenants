@@ -1,0 +1,34 @@
+{
+	"workers": [
+		{
+			"pattern": "A*10,B*10,(100:A|50:B|2:C)*10",
+			"repeat": 100
+		},{
+			"pattern": "B*20,(50:B|2:C)*10",
+			"repeat": 5
+		},{
+			"pattern": "C*200",
+			"repeat": 5
+		}
+	],
+	"sources": [
+		{
+			"id": "A",
+			"groupName": "Tenant Contoso",
+			"targetTopic": "http://localhost:3003/topic",
+			"types": ["cart", "inventory", "payment"]
+		},
+		{
+			"id": "B",
+			"groupName": "Tenant Adventureworks",
+			"targetTopic": "http://localhost:3004/topic",
+			"types": ["cart", "inventory", "payment"]
+		},
+		{
+			"id": "C",
+			"groupName": "Tenant City Power",
+			"targetTopic": "http://localhost:3005/topic",
+			"types": ["cart", "inventory", "payment"]
+		}
+	]
+}

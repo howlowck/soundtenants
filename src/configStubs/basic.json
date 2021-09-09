@@ -1,0 +1,22 @@
+{
+	"workers": [
+		{
+			"pattern": "A*20,B*20,(10:A|5:B)*10",
+			"repeat": 100
+		}
+	],
+	"sources": [
+		{
+			"id": "A",
+			"groupName": "Tenant Contoso - Checkout",
+			"targetTopic": "http://localhost:3003/topic/checkout",
+			"types": ["cart", "payment"]
+		},
+		{
+			"id": "B",
+			"groupName": "Tenant Contoso - Inventory",
+			"targetTopic": "http://localhost:3003/topic/inventory",
+			"types": ["inventory"]
+		}
+	]
+}

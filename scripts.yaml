@@ -1,0 +1,36 @@
+scripts:
+  help:
+    desc: Display help text
+    cmd: src/index.ts --help
+    unstable: true
+    allow:
+      - run
+      - read
+      - write
+      - net
+      - hrtime
+  start:
+    desc: Start message emitters based on config.json
+    cmd: src/index.ts work
+    unstable: true
+    allow:
+      - run
+      - read
+      - write
+      - net
+      - hrtime
+  init:
+    desc: Create a configuration file
+    cmd: src/index.ts init
+    unstable: true
+    allow:
+      - run
+      - read
+      - write
+      - net
+      - hrtime
+  compile:
+    pll:
+      - deno compile --unstable --allow-run --allow-read --allow-write --allow-net --allow-hrtime -o builds/soundtenants-win64 --target x86_64-pc-windows-msvc src/index.ts
+      - deno compile --unstable --allow-run --allow-read --allow-write --allow-net --allow-hrtime -o builds/soundtenants-linux --target x86_64-unknown-linux-gnu src/index.ts
+      - deno compile --unstable --allow-run --allow-read --allow-write --allow-net --allow-hrtime -o builds/soundtenants-macos --target x86_64-apple-darwin src/index.ts

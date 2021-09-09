@@ -1,0 +1,6 @@
+.vscode/
+Dockerfile
+.env
+/builds
+/config.json
+/*.config.json

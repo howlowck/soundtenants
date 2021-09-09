@@ -1,0 +1,4 @@
+.env
+/builds
+/config.json
+/*.config.json
