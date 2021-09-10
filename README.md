@@ -17,7 +17,7 @@ A messaging testing tool to see how your multi-tenant messaging system handle no
 1. Install [Deno](https://deno.land/#installation) and [Velociraptor](https://velociraptor.run/docs/installation/)
 2. Clone this Repo
 3. Now you can run `vr help` to see the possible commands
-4. In the root project folder, run `vr init <filename>` (ie `soundtenants init config.json`) to create a new Config json file
+4. In the root project folder, run `vr init <filename>` (ie `vr init config.json`) to create a new Config json file
 5. Edit the config json file (see details in the next section)
 6. Run `vr start <filename>` to start the test.
 
@@ -35,7 +35,7 @@ In order to fully utilize this tool, it's important to understand the concepts t
 
 There are two main components to the config file: `workers` and `sources`. Workers describe "what" messages to send, and "Sources" describe the "how": how to compose the messages, and how to send them.
 
-## Workers
+### Workers
 
 Workers are the agents that will publish the messages. You can specify an array of workers, all workers will start and execute in parallel, publishing the messages per its specified pattern.
 
@@ -49,7 +49,7 @@ export type WorkerConfig = {
 The pattern sequence is read left-to-right (left most message in the pattern is published first).
 Here are the components to the pattern schema: `<sourceId>*<count>,...,(<ratio>:<sourceId>|<ratio>:<sourceId>|...)`.
 
-## Sources
+### Sources
 
 A source describes how to publish and generate a message. It has these following properties:
 
@@ -61,3 +61,13 @@ export type SourceConfig = {
  types: Array<'cart'|'inventory'|'payment'> // an array of possible message types to generate
 }
 ```
+
+## How to Use the Tool with Architecture
+
+One of the main goals of this tool is that it's platform-agnostic, meaning that it should be able to test any messaging architecture. Currently it only supports publishing to HTTP endpoints.
+We want the tool to be thin, so here are some external components required for this tool to work:
+
+* a Reverse Proxy like (ngrok) to open a internet accessible url to your computer to the localhost listening port
+* a simple service in your messaging architecture that can call to the reverse-proxied URL with the published message
+
+![architecture](./docs/media/hi-lvl-architecture.drawio.png)
