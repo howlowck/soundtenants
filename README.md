@@ -31,7 +31,7 @@ As soon as [Deno compiled binary supports web workers](https://github.com/denola
 
 ## Understanding the Config file
 
-In order to fully utilize this tool, it's important to understand the concepts that makes this tool flexible.
+In order to fully utilize this tool, it's important to understand the concepts that makes this tool flexible. You can see [some example config files here](https://github.com/howlowck/soundtenants/tree/main/src/configStubs).
 
 There are two main components to the config file: `workers` and `sources`. Workers describe "what" messages to send, and "Sources" describe the "how": how to compose the messages, and how to send them.
 
