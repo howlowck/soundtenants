@@ -62,7 +62,7 @@ export type SourceConfig = {
 }
 ```
 
-## How to Use the Tool with Architecture
+## How to Use the Tool with any Architecture
 
 One of the main goals of this tool is that it's platform-agnostic, meaning that it should be able to test any messaging architecture. Currently it only supports publishing to HTTP endpoints.
 We want the tool to be thin, so here are some external components required for this tool to work:
