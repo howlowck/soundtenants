@@ -2,6 +2,8 @@
 
 A messaging testing tool to see how your multi-tenant messaging system handle noisy neighbors.
 
+![demo-gif](./docs/media/soundtenants-demo.gif)
+
 ## Features (& Goals)
 
 * Cross-Platform
