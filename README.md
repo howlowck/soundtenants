@@ -23,7 +23,37 @@ A messaging testing tool to see how your multi-tenant messaging system handle no
 
 ### Using Docker
 
-Coming Soon.
+Docker enables you to quickly use the tool
+
+1. Build the image
+
+``` bash
+docker build -t soundtenants .
+```
+
+2. Execute the tool using docker mounting the local config folder
+
+>NOTE: It is necessary to specify the whole local path
+
+``` bash
+docker run -p 8080:8080 -it -v <local-config-folder>:/config soundtenants vr start /config/config.json
+```
+
+>NOTE: You can use [ngrok](http://ngrok.com) to create a route back to the event listener, allowing you to run the tool local and send messages from the outside.
+
+### Install Ngrok
+
+``` bash
+wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -o ~.
+unzip ~/ngrok-stable-linux-amd64.zip
+sudo mv ngrok /usr/local/bin
+```
+
+### Executing Ngrok
+
+``` bash
+ngrok http 8080
+```
 
 ### Using Native Binary
 
