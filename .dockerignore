@@ -4,3 +4,4 @@ Dockerfile
 /builds
 /config.json
 /*.config.json
+/config/*
